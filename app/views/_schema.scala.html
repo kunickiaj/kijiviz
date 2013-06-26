@@ -8,7 +8,7 @@
   case SchemaType.COUNTER => { "(counter)" }
   case SchemaType.INLINE => {
     @defining(Schema.parse(cellSchema.getValue.trim)) { schema: Schema =>
-      // TODO(Aaron): Pretty-print schemas here.
+      <!-- TODO(Aaron): Pretty-print schemas here. -->
       @schema.toString
     }
   }

@@ -5,12 +5,24 @@
 <div>
   <h2>Locality group: @group.getName</h2>
 
-  <p>Max versions: @group.getMaxVersions.toString</p>
-  <p>TTL: @group.getTtlSeconds.toString</p>
-  <p>InMemory: @group.getInMemory.toString</p>
-  <p>Block size: @Option(group.getBlockSize).getOrElse("<system-defined>").toString</p>
-  <p>Bloom filter: @Option(group.getBloomType).getOrElse("NONE").toString</p>
-  <p>Compression: @group.getCompressionType.toString</p>
+  <table class="table table-condensed table-bordered">
+  <tr>
+    <th>Max versions</th>
+    <th>TTL</th>
+    <th>In memory?</th>
+    <th>Block size</th>
+    <th>Bloom filter</th>
+    <th>Compression</th>
+  </tr>
+  <tr>
+    <td>@group.getMaxVersions.toString</td>
+    <td>@group.getTtlSeconds.toString</td>
+    <td>@group.getInMemory.toString</td>
+    <td>@Option(group.getBlockSize).getOrElse("<system-defined>").toString</td>
+    <td>@Option(group.getBloomType).getOrElse("NONE").toString</td>
+    <td>@group.getCompressionType.toString</td>
+  </tr>
+  </table>
 
   @group.getFamilies.map { family => @_layout_family(family) }
 </div>
