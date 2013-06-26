@@ -1,0 +1,6 @@
+@(cellSchema: org.kiji.schema.avro.CellSchema)
+
+@import org.apache.avro.Schema
+
+<!-- TODO(Aaron): pretty-print schemas. Also handle class/counter CellSchemas here -->
+<p>Schema is @Schema.parse(cellSchema.getValue.trim).toString</p>

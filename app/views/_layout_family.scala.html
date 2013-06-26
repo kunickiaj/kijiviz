@@ -1,0 +1,23 @@
+@(family: org.kiji.schema.avro.FamilyDesc)
+
+<!-- Render a column family's layout within a table layout -->
+
+<div class="well">
+  <h3>Family: @family.getName
+    @if(Option(family.getMapSchema).isDefined) {
+      (Map type)
+    } else {
+      (Group type)
+    }
+  </h3>
+
+  <!-- TODO: Description -->
+
+  @if(Option(family.getMapSchema).isDefined) {
+    <p>Map type family has schema:</p>
+    @_schema(family.getMapSchema)
+  }
+
+
+</div>
+

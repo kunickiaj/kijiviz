@@ -4,7 +4,10 @@
 
 # Home page
 GET     /                           controllers.Application.index
+
 GET     /tables                     controllers.TableViewer.index
+GET     /tables/:tableName          controllers.TableViewer.show(tableName: String)
+
 GET     /layouts                    controllers.LayoutViewer.index
 GET     /layouteditor               controllers.LayoutEditor.index
 GET     /dataviz                    controllers.DataViz.index
