@@ -1,5 +1,7 @@
 @(family: org.kiji.schema.avro.FamilyDesc)
 
+@import org.kiji.schema.avro.ColumnDesc
+
 <!-- Render a column family's layout within a table layout -->
 
 <div class="well">
@@ -11,13 +13,19 @@
     }
   </h3>
 
-  <!-- TODO: Description -->
+  <p>@Option(family.getDescription).getOrElse("")</p>
 
   @if(Option(family.getMapSchema).isDefined) {
     <p>Map type family has schema:</p>
     @_schema(family.getMapSchema)
+  } else {
+    <ul>
+      @family.getColumns.map { col: ColumnDesc =>
+        <li>@col.getName (@Option(col.getDescription).getOrElse("")):
+          @_schema(col.getColumnSchema)
+        </li>
+      }
+    </ul>
   }
-
-
 </div>
 

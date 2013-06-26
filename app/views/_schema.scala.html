@@ -1,6 +1,15 @@
 @(cellSchema: org.kiji.schema.avro.CellSchema)
 
 @import org.apache.avro.Schema
+@import org.kiji.schema.avro.SchemaType
 
-<!-- TODO(Aaron): pretty-print schemas. Also handle class/counter CellSchemas here -->
-<p>Schema is @Schema.parse(cellSchema.getValue.trim).toString</p>
+@cellSchema.getType match {
+  case SchemaType.CLASS => { "Class: "+ @cellSchema.getValue.trim }
+  case SchemaType.COUNTER => { "(counter)" }
+  case SchemaType.INLINE => {
+    @defining(Schema.parse(cellSchema.getValue.trim)) { schema: Schema =>
+      // TODO(Aaron): Pretty-print schemas here.
+      @schema.toString
+    }
+  }
+}

@@ -2,18 +2,16 @@
 
 <!-- Render a locality group within a table layout -->
 
-<div class="row">
-  <div class="span12">
-    <h2>Locality group: @group.getName</h2>
+<div>
+  <h2>Locality group: @group.getName</h2>
 
-    <p>Max versions: @group.getMaxVersions.toString</p>
-    <p>TTL: @group.getTtlSeconds.toString</p>
-    <p>InMemory: @group.getInMemory.toString</p>
-    <p>Block size: @Option(group.getBlockSize).getOrElse("<system-defined>").toString</p>
-    <p>Bloom filter: @Option(group.getBloomType).getOrElse("NONE").toString</p>
-    <p>Compression: @group.getCompressionType.toString</p>
+  <p>Max versions: @group.getMaxVersions.toString</p>
+  <p>TTL: @group.getTtlSeconds.toString</p>
+  <p>InMemory: @group.getInMemory.toString</p>
+  <p>Block size: @Option(group.getBlockSize).getOrElse("<system-defined>").toString</p>
+  <p>Bloom filter: @Option(group.getBloomType).getOrElse("NONE").toString</p>
+  <p>Compression: @group.getCompressionType.toString</p>
 
-    @group.getFamilies.map { family => @_layout_family(family) }
-  </div>
+  @group.getFamilies.map { family => @_layout_family(family) }
 </div>
 
