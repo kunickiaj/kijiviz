@@ -1,4 +1,4 @@
-@(family: org.kiji.schema.avro.FamilyDesc)
+@(family: org.kiji.schema.avro.FamilyDesc, tableName: String)
 
 @import org.kiji.schema.avro.ColumnDesc
 
@@ -11,6 +11,8 @@
     } else {
       (Group type)
     }
+    &nbsp;
+    <a href="/tables/@tableName/preview/@family.getName">Preview &gt;&gt;</a>
   </h3>
 
   <p>@Option(family.getDescription).getOrElse("")</p>

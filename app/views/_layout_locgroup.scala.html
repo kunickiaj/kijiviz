@@ -1,4 +1,4 @@
-@(group: org.kiji.schema.avro.LocalityGroupDesc)
+@(group: org.kiji.schema.avro.LocalityGroupDesc, tableName: String)
 
 <!-- Render a locality group within a table layout -->
 
@@ -24,6 +24,6 @@
   </tr>
   </table>
 
-  @group.getFamilies.map { family => @_layout_family(family) }
+  @group.getFamilies.map { family => @_layout_family(family, tableName) }
 </div>
 

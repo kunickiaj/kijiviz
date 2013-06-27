@@ -7,6 +7,7 @@ GET     /                           controllers.Application.index
 
 GET     /tables                     controllers.TableViewer.index
 GET     /tables/:tableName          controllers.TableViewer.show(tableName: String)
+GET     /tables/:tableName/preview/:famName    controllers.TableViewer.showFamily(tableName: String, famName: String)
 
 GET     /layouts                    controllers.LayoutViewer.index
 GET     /layouteditor               controllers.LayoutEditor.index

@@ -4,13 +4,11 @@
     
 <div class="row">
   <div class="span3">&nbsp;</div>
-  <div class="span6"><h2>This is the table viewer.</h2></div>
+  <div class="span6"><h2>View table layout: @tableName</h2></div>
 </div>
 
 <div class="row">
   <div class="span12">
-    <h1>@tableName</h1>
-
     <p>@Option(layout.getDescription()).getOrElse("").trim</p>
   </div>
   <div class="span12">
@@ -19,7 +17,7 @@
   </div>
   <div class="span12">
     @layout.getLocalityGroups().map { localityGroup =>
-        @_layout_locgroup(localityGroup)
+        @_layout_locgroup(localityGroup, tableName)
     }
   </div>
 </div>

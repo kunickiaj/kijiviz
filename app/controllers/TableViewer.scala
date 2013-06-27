@@ -50,4 +50,19 @@ object TableViewer extends Controller {
     Ok(views.html.tableviewer_show(tableName, layout.getDesc()))
   }
 
+  /** GET /tables/<tablename>/preview/<familyName> */
+  def showFamily(tableName: String, familyName: String) = Action {
+    // Display the layout for the table.
+
+    val kiji: Kiji = Kiji.Factory.open(
+        KijiURI.newBuilder().withInstanceName(KConstants.DEFAULT_INSTANCE_NAME).build(),
+        mConf)
+
+    val table: KijiTable = kiji.openTable(tableName)
+    val layout: KijiTableLayout = table.getLayout()
+    table.release()
+    kiji.release()
+    Ok(views.html.tableviewer_showFamily(tableName, familyName))
+  }
+
 }
